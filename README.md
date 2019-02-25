@@ -3,8 +3,6 @@
 A service for keeping track of prerequisites and dependencies.
 Jumpstarted with [SFDS microservice.py](https://github.com/SFDigitalServices/microservice-py)
 
-
-
 SFDS microservice.py jumpstarts your next python-based microservice. It consists of a skeleton boilerplate make up of
 * [falcon](https://falconframework.org/): bare-metal Python web API framework 
 * [gunicorn](https://gunicorn.org/): Python WSGI HTTP Server for UNIX
