@@ -17,12 +17,6 @@ Create virtual environment and install dependencies
 Activate the pipenv shell
 > \$ pipenv shell
 
-Exit the pipenv shell
-> \$ exit
-
-Added a package to the project
-> \$ pipenv install <package>
-
 Start WSGI Server
 > \$ gunicorn 'service.microservice:start_service()'
 
@@ -32,3 +26,13 @@ Run Pytest
 Open with cURL or web browser
 > \$ curl http://127.0.0.1:8000/welcome
 
+Exit the pipenv shell
+> \$ exit
+
+
+## Useful commands
+Add a package to the project
+> \$ pipenv install \<package>
+
+Remove a package
+> \$ pipenv uninstall \<package>
