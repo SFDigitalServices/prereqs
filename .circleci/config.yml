@@ -57,7 +57,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            pipenv shell
             pytest tests
 
       - store_artifacts:
