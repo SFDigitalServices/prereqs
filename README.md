@@ -7,8 +7,8 @@ Jumpstarted with [SFDS microservice.py](https://github.com/SFDigitalServices/mic
 
 Install python3
 Install and start postgresql 11.2
-Set environment variable for db connection string
-> \$ export DATABASE_URL=postgres://$(whoami)
+Set environment variable for db connection string, assumes that you have a database named with your username
+> \$ export DATABASE_URL=postgres://localhost/$(whoami)
 
 Install pipenv
 Create virtual environment and install dependencies
@@ -25,6 +25,9 @@ Run Pytest
 
 Open with cURL or web browser
 > \$ curl http://127.0.0.1:8000/welcome
+
+Run DB migrations
+> alembic upgrade head
 
 Exit the pipenv shell
 > \$ exit
