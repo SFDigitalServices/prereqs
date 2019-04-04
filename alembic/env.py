@@ -57,7 +57,8 @@ def run_migrations_online():
     and associate a connection with the context.
 
     """
-    connectable = create_engine(get_url())
+    url = get_url()
+    connectable = create_engine(url)
     with connectable.connect() as connection:
         context.configure(
             connection=connection, target_metadata=target_metadata
