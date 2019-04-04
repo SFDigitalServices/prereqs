@@ -58,7 +58,6 @@ def run_migrations_online():
 
     """
     url = get_url()
-    print("the url is ", url)
     connectable = create_engine(url)
     with connectable.connect() as connection:
         context.configure(
