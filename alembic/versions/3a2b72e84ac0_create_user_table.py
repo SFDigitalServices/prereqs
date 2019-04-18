@@ -18,6 +18,7 @@ depends_on = None
 
 
 def upgrade():
+    op.execute('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";') # For uuid_generate_v4
     op.create_table(
         'user',
         sa.Column('id', UUID(), primary_key=True, server_default=sa.text("uuid_generate_v4()")),
