@@ -39,3 +39,6 @@ Add a package to the project
 
 Remove a package
 > \$ pipenv uninstall \<package>
+
+Create a migration
+> alembic revision -m "Add a column"
