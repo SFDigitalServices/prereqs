@@ -7,6 +7,7 @@ Create Date: 2019-04-05 09:59:29.351173
 """
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.dialects.postgresql import UUID
 
 
 # revision identifiers, used by Alembic.
@@ -21,8 +22,8 @@ def upgrade():
         'approval',
         sa.Column('id', sa.Integer, primary_key=True),
         sa.Column('name', sa.String(255), nullable=False),
-        sa.Column('created_by', sa.Integer),
-        sa.Column('last_modified_by', sa.Integer),
+        sa.Column('created_by', UUID()),
+        sa.Column('last_modified_by', UUID()),
         sa.Column('last_modified_date', sa.DateTime)
     )
 
@@ -40,7 +41,7 @@ def upgrade():
         sa.Column('status', sa.String(100)),
         sa.Column('root_request_id', sa.Integer),
         sa.Column('parent_request_id', sa.Integer),
-        sa.Column('owner_id', sa.Integer)
+        sa.Column('owner_id', UUID())
     )
 
     op.create_foreign_key(

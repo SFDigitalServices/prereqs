@@ -42,3 +42,10 @@ Remove a package
 
 Create a migration
 > alembic revision -m "Add a column"
+
+## Good to know
+
+When running migrations, if you see an error which looks like
+`sqlalchemy.exc.ProgrammingError: (psycopg2.ProgrammingError) function uuid_generate_v4() does not exist`
+Connect to the psql database and run `CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`
+https://stackoverflow.com/questions/22446478/extension-exists-but-uuid-generate-v4-fails

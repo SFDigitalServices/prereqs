@@ -7,6 +7,7 @@ Create Date: 2019-04-04 16:43:05.213251
 """
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.dialects.postgresql import UUID
 
 
 # revision identifiers, used by Alembic.
@@ -25,7 +26,7 @@ def upgrade():
 
     op.create_table(
         'user_group',
-        sa.Column('user_id', sa.Integer, nullable=False),
+        sa.Column('user_id', UUID(), nullable=False),
         sa.Column('group_id', sa.Integer, nullable=False)
     )
 

@@ -7,6 +7,7 @@ Create Date: 2019-04-18 10:04:29.019762
 """
 from alembic import op
 import sqlalchemy as sa
+from sqlalchemy.sql import expression
 
 
 # revision identifiers, used by Alembic.
@@ -18,7 +19,7 @@ depends_on = None
 
 def upgrade():
     op.add_column('user',
-        sa.Column('is_admin', sa.Boolean(), nullable=False, default=False)
+        sa.Column('is_admin', sa.Boolean(), nullable=False, server_default=expression.false())
     )
 
 
