@@ -30,6 +30,13 @@ def upgrade():
         sa.Column('group_id', sa.Integer, nullable=False)
     )
 
+    op.create_table(
+        'group_permission',
+        sa.Column('group_id', sa.Integer, nullable=False),
+        sa.Column('resource', sa.String(255), nullable=False),
+        sa.Column('permission_type', sa.String(10), nullable=False)
+    )
+
     op.create_foreign_key(
         'fk_user_id',
         'user_group',
@@ -41,6 +48,14 @@ def upgrade():
     op.create_foreign_key(
         'fk_group_id',
         'user_group',
+        'group',
+        ['group_id'],
+        ['id']
+    )
+
+    op.create_foreign_key(
+        'fk_permission_group_id',
+        'group_permission',
         'group',
         ['group_id'],
         ['id']
