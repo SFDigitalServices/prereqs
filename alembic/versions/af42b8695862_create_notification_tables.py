@@ -81,7 +81,7 @@ def upgrade():
     op.create_foreign_key(
         'fk_notification_log_user_id',
         'notification_log',
-        'user',
+        'user_account',
         ['user_id'],
         ['id']
     )

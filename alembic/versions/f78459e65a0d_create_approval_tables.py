@@ -47,14 +47,14 @@ def upgrade():
     op.create_foreign_key(
         'fk_approval_last_modified_by',
         'approval',
-        'user',
+        'user_account',
         ['last_modified_by'],
         ['id']
     )
     op.create_foreign_key(
         'fk_approval_created_by',
         'approval',
-        'user',
+        'user_account',
         ['created_by'],
         ['id']
     )
@@ -103,7 +103,7 @@ def upgrade():
     op.create_foreign_key(
         'fk_request_owner_id',
         'request',
-        'user',
+        'user_account',
         ['owner_id'],
         ['id']
     )

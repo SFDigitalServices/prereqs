@@ -19,7 +19,7 @@ depends_on = None
 
 def upgrade():
     op.create_table(
-        'group',
+        'grouping',
         sa.Column('id', sa.Integer, primary_key=True),
         sa.Column('name', sa.String(255), nullable=False)
     )
@@ -40,7 +40,7 @@ def upgrade():
     op.create_foreign_key(
         'fk_user_id',
         'user_group',
-        'user',
+        'user_account',
         ['user_id'],
         ['id']
     )
@@ -48,7 +48,7 @@ def upgrade():
     op.create_foreign_key(
         'fk_group_id',
         'user_group',
-        'group',
+        'grouping',
         ['group_id'],
         ['id']
     )
@@ -56,13 +56,13 @@ def upgrade():
     op.create_foreign_key(
         'fk_permission_group_id',
         'group_permission',
-        'group',
+        'grouping',
         ['group_id'],
         ['id']
     )
 
 
 def downgrade():
-    op.drop_table('group')
+    op.drop_table('grouping')
     op.drop_table('user_group')
 

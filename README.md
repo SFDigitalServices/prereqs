@@ -18,7 +18,7 @@ Activate the pipenv shell
 > \$ pipenv shell
 
 Start WSGI Server
-> \$ gunicorn 'service.microservice:start_service()'
+> \$ gunicorn --reload 'service.microservice:start_service()'
 
 Run Pytest
 > \$ pytest tests

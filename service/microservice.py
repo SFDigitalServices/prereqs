@@ -4,7 +4,9 @@ import json
 import jsend
 import sentry_sdk
 import falcon
-from .resources.welcome import Welcome
+from falcon_autocrud.middleware import Middleware
+import sqlalchemy as sa
+from . import routes
 
 def start_service():
     """Start this service
@@ -12,9 +14,15 @@ def start_service():
     """
     # Initialize Sentry
     sentry_sdk.init(os.environ.get('SENTRY_DSN'))
+
+    # Database
+    db_engine = sa.create_engine(os.environ.get('DATABASE_URL'))
+
     # Initialize Falcon
-    api = falcon.API()
-    api.add_route('/welcome', Welcome())
+    api = falcon.API(
+        middleware = [Middleware()]
+    )
+    routes.addRoutes(api, db_engine)
     api.add_sink(default_error, '')
     return api
 

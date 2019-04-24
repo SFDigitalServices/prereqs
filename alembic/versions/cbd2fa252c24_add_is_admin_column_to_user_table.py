@@ -18,10 +18,10 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column('user',
+    op.add_column('user_account',
         sa.Column('is_admin', sa.Boolean(), nullable=False, server_default=expression.false())
     )
 
 
 def downgrade():
-    op.drop_column('user', 'is_admin')
+    op.drop_column('user_account', 'is_admin')
