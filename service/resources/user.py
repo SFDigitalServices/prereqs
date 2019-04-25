@@ -12,7 +12,6 @@ class User(Base):
     __tablename__ = 'user_account'
     id = sa.Column('id', UUID(), primary_key=True)
     email = sa.Column('email', sa.String(255))
-    secret = sa.Column('secret', sa.String(2048))
     is_admin = sa.Column('is_admin', sa.Boolean())
 
 
