@@ -31,8 +31,12 @@ urllib3 = "==1.24.2"
 wrapt = "==1.11.1"
 alembic = "*"
 psycopg2 = "*"
-sqlalchemy = "*"
 falcon-autocrud = "*"
+coverage = "==4.5.3"
+coveralls = "==1.7.0"
+docopt = "==0.6.2"
+pytest-cov = "==2.6.1"
+SQLAlchemy = "*"
 
 [requires]
 python_version = "3.7"
