@@ -35,6 +35,16 @@ def test_get_user(client):
     if user is not None:
         pytest.user_id = user.get("id")
 
+def test_edit_user(client):
+    response = client.simulate_put(
+        ''.join(['/users/', pytest.user_id]),
+        json = { 'is_admin': True }
+    )
+    assert response.status_code == 200
+
+    user = json.loads(response.content).get('data')
+    assert user.get('is_admin') == True
+
 def test_delete_user(client):
     assert pytest.user_id is not None
     if pytest.user_id is not None:
