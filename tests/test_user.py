@@ -8,10 +8,17 @@ from falcon import testing
 import service.microservice
 from urllib.parse import urlencode
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def client():
     """ client fixture """
-    return testing.TestClient(service.microservice.start_service())
+    client = testing.TestClient(service.microservice.start_service())
+    yield client
+    """Tear down
+    Try to delete the user so we don't leave any testing artifacts
+    """
+    if pytest.user_id is not None:
+        resource_url = ''.join(['/users/', pytest.user_id])
+        client.simulate_delete(resource_url)
 
 def pytest_configure(config):
     pytest.user_id = None
